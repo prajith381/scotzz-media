@@ -1,0 +1,476 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0a0a0a;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    height: 50px;
+    /* Circle removed */
+    animation: pulse 3s infinite;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #e6b800, #fff, #e6b800);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(230, 184, 0, 0.3);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(230, 184, 0, 0.6);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 5px rgba(230, 184, 0, 0.3);
+    }
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e6b800;
+}
+
+.btn-book {
+    background: #e6b800;
+    color: #000 !important;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-content span {
+    color: #e6b800;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 40px;
+    background: #e6b800;
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    background: #fff;
+}
+
+.social-hero {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Services */
+.services {
+    padding: 80px 10%;
+    text-align: center;
+    background: #111;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.service-card {
+    background: #1a1a1a;
+    padding: 40px;
+    border-radius: 10px;
+    transition: 0.3s;
+    border: 1px solid #333;
+}
+
+.service-card:hover {
+    border-color: #e6b800;
+    transform: translateY(-10px);
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: #e6b800;
+    margin-bottom: 20px;
+}
+
+/* Unified Media Card Styles */
+.media-card {
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    grid-row: span 2;
+    border: none;
+}
+
+.service-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0.6;
+    transition: opacity 0.3s, transform 0.5s;
+}
+
+.media-card:hover .service-media {
+    opacity: 0.8;
+    transform: scale(1.05);
+    /* Subtle zoom effect */
+}
+
+.media-card .service-info {
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+    width: 100%;
+}
+
+.media-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #e6b800;
+}
+
+.media-card p {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2.5rem;
+    color: #e6b800;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* About Section */
+.about-section {
+    padding: 100px 10%;
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.about-container {
+    max-width: 900px;
+    text-align: center;
+}
+
+.about-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #ccc;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.about-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-text .highlight {
+    color: #e6b800;
+    font-weight: 700;
+    font-size: 1.3rem;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Animation Delays */
+.delay-1 {
+    transition-delay: 0.3s;
+}
+
+/* Booking Section Redesign */
+.booking {
+    padding: 80px 20px;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Removed background blobs for cleaner look matching reference */
+.booking::before,
+.booking::after {
+    display: none;
+}
+
+.booking-container {
+    background: #121212;
+    padding: 40px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+    position: relative;
+    z-index: 1;
+}
+
+.booking h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: #e6b800;
+    font-weight: 700;
+    /* Removed text gradient to match reference solid color */
+}
+
+.booking p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ccc;
+    font-size: 1rem;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+    width: 100%;
+    padding: 15px;
+    background: #1f1f1f;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #888;
+    /* Placeholder/Text color matching reference look */
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.booking-form input::placeholder,
+.booking-form textarea::placeholder {
+    color: #555;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+    outline: none;
+    background: #1f1f1f;
+    border-color: #555;
+    box-shadow: none;
+    /* Removed glow to match flat look */
+}
+
+.booking-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.booking-form button {
+    width: 100%;
+    padding: 15px;
+    background: #e6b800;
+    /* Solid Gold */
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-transform: none;
+    /* Reference button text is normal case/Capitalized not UPPER */
+    margin-top: 10px;
+}
+
+.booking-form button:hover {
+    background: #cca300;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Remove shiny button effect */
+.booking-form button::before {
+    display: none;
+}
+
+#statusMsg {
+    margin-top: 15px;
+    font-weight: normal;
+    text-align: left;
+    /* Reference shows success message aligned left/start or close to button */
+    color: #4BB543;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+    padding: 40px;
+    text-align: center;
+    background: #000;
+    border-top: 1px solid #222;
+}
+
+.contact-info {
+    color: #ccc;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.social-footer a {
+    margin: 0 10px;
+    font-size: 1.5rem;
+    color: #555;
+    transition: 0.3s;
+}
+
+.social-footer a:hover {
+    color: #e6b800;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    /* Mobile Menu would go here */
+}

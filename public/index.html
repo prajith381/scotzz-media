@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scotzz Media | Cinematic Videography</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="assets/logo.jpg.jpg" alt="Scotzz Media Logo" class="logo-img">
+            <span class="logo-text animated-text">SCOTZZ MEDIA</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact" class="btn-book">Book Now</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Video Background -->
+    <section id="home" class="hero">
+        <!-- REPLACE 'video.mp4' WITH ONE OF YOUR INSTAGRAM REELS DOWNLOADED AS MP4 -->
+        <img src="assets/hero-bg.jpg" alt="Hero Background" id="bg-video">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Capturing Reality, <br> Creating <span>Legacy</span></h1>
+            <p>Professional Videography & Editing Services</p>
+            <a href="#contact" class="cta-button">Start Your Project</a>
+
+            <div class="social-hero">
+                <a href="https://www.instagram.com/scotzz_media_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    target="_blank"><i class="fab fa-instagram"></i> Follow on Insta</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <!-- 3D Modelling Card -->
+            <div class="service-card media-card">
+                <video src="assets/blend1.mp4.mp4" autoplay muted loop playsinline class="service-media"></video>
+                <div class="service-info">
+                    <h3>3D Modelling</h3>
+                    <p>High-quality 3D assets, product rendering, and architectural visualization.</p>
+                </div>
+            </div>
+
+            <!-- Reels & Shorts Card -->
+            <div class="service-card media-card">
+                <video src="assets/video.mp4" id="reelsVideo" autoplay muted playsinline class="service-media"></video>
+                <div class="service-info">
+                    <h3>Reels & Shorts</h3>
+                    <p>Trendy, high-retention short-form content for your social media.</p>
+                </div>
+            </div>
+
+            <!-- Post Production Card -->
+            <div class="service-card media-card">
+                <img src="assets/post production.jpg.png" alt="Post Production" class="service-media">
+                <div class="service-info">
+                    <h3>Post Production</h3>
+                    <p>Professional editing, color grading, and sound design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <h2 class="section-title">About Us</h2>
+            <p class="about-text animate-text">
+                <span class="highlight">Scotzz Media</span> is a creative visual studio specializing in cinematic
+                videography, professional editing, and high-impact digital content. From weddings and events to reels,
+                commercials, and branded visuals, we focus on storytelling that feels real, emotional, and visually
+                powerful. Our work blends modern shooting techniques, precise color grading, and smooth edits to create
+                content that connects instantly with audiences—especially on social media platforms like Instagram.
+            </p>
+            <p class="about-text animate-text delay-1">
+                Alongside video production, <span class="highlight">Scotzz Media</span> also offers 3D modelling
+                services, creating detailed product visuals, conceptual designs, and realistic 3D assets for
+                presentations, branding, and digital experiences. Whether it’s capturing moments, crafting engaging
+                reels, or building immersive 3D visuals, Scotzz Media is driven by creativity, quality, and a passion
+                for turning ideas into compelling visual stories.
+            </p>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="contact" class="booking">
+        <div class="booking-container">
+            <h2>Book a Session</h2>
+            <p>Tell us about your vision. We'll get back to you instantly.</p>
+
+            <form id="bookingForm" class="booking-form">
+                <div class="input-group">
+                    <input type="text" id="name" name="name" required placeholder="Your Name">
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" name="email" required placeholder="Your Email">
+                </div>
+                <div class="input-group">
+                    <input type="tel" id="phone" name="phone" required placeholder="Phone Number">
+                </div>
+                <div class="input-group">
+                    <select id="serviceType" name="serviceType">
+                        <option value="Wedding">Wedding Shoot</option>
+                        <option value="Commercial">Commercial/Ad</option>
+                        <option value="Editing">Video Editing</option>
+                        <option value="Photoshoot">Photoshoot</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <input type="date" id="date" name="date">
+                </div>
+                <div class="input-group">
+                    <textarea id="message" name="message" rows="5"
+                        placeholder="Describe your project requirements..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Request <i class="fas fa-paper-plane"></i></button>
+            </form>
+            <div id="statusMessage"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p class="contact-info">For any enquiries contact phone no 7604956124 or dm to scotzz_media</p>
+        <p>&copy; 2025 Scotzz Media. All Rights Reserved.</p>
+        <div class="social-footer">
+            <a
+                href="https://www.instagram.com/scotzz_media_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
+                    class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
