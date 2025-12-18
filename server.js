@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(express.static('public'));
+app.use(express.static('.')); // Serve static files from root
 app.use(bodyParser.json());
 
 // Load env vars if dotenv is available (optional but good for local dev)
