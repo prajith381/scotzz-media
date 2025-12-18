@@ -10,44 +10,44 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static('.')); // Serve static files from root
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('.'));
 
-// Email Configuration - Brevo SMTP
+// Brevo SMTP
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
   port: 587,
   secure: false,
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    pass: process.env.EMAIL_PASS
   }
 });
 
-// Booking Route
+// Booking route
 app.post('/send-booking', async (req, res) => {
   const { name, email, phone, serviceType, date, message } = req.body;
 
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: "sinrasu737@gmail.com",
-    subject: `New Booking Request: ${serviceType} - ${name}`,
-    html: `
-      <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-        <h2 style="color: #d4af37;">New Booking Request</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Service Type:</strong> ${serviceType}</p>
-        <p><strong>Preferred Date:</strong> ${date}</p>
-        <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #d4af37; margin-top: 20px;">
-          <strong>Message:</strong><br>${message}
-        </div>
-      </div>
-    `
-  };
+  if (!name || !email || !serviceType) {
+    return res.status(400).json({ message: "Missing required fields" });
+  }
 
   try {
-    await transporter.sendMail(mailOptions);
+    await transporter.sendMail({
+      from: `"Scotzz Media" <${process.env.EMAIL_USER}>`,
+      to: "sinrasu737@gmail.com",
+      subject: `New Booking Request: ${serviceType} - ${name}`,
+      html: `
+        <h2>New Booking Request</h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <p><b>Service:</b> ${serviceType}</p>
+        <p><b>Date:</b> ${date}</p>
+        <p><b>Message:</b><br>${message}</p>
+      `
+    });
+
     res.status(200).json({ message: "Email sent successfully" });
   } catch (error) {
     console.error("EMAIL ERROR:", error);
@@ -56,10 +56,12 @@ app.post('/send-booking', async (req, res) => {
 });
 
 // Fallback route
-app.get('*', (req, res) => {
+app.get(/.*/, (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
+
+// Start server (REQUIRED for Render)
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
