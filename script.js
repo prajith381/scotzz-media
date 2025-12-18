@@ -19,13 +19,16 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     };
 
     try {
-        const response = await fetch('/send-booking', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        });
+        const response = await fetch(
+            'https://scotzz-media.onrender.com/send-booking',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            }
+        );
 
         const result = await response.json();
 
@@ -47,7 +50,6 @@ document.getElementById('bookingForm').addEventListener('submit', async function
 });
 
 // Animation Observer
-// Animation Observer
 const observerOptions = {
     threshold: 0.2
 };
@@ -59,7 +61,6 @@ const observer = new IntersectionObserver((entries) => {
         }
     });
 }, observerOptions);
-
 
 document.querySelectorAll('.animate-text').forEach(el => {
     observer.observe(el);
