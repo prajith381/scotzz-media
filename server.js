@@ -12,9 +12,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static('.')); // Serve static files from root
 
-// Email Configuration
+// Email Configuration - Brevo SMTP
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
+  host: "smtp-relay.brevo.com",
   port: 587,
   secure: false,
   auth: {
