@@ -19,10 +19,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     };
 
     try {
-        // Point to the new Vercel-compatible API route
-        // On Localhost: this works because we'll update server.js
-        // On Vercel: this works because it points to api/send-booking.js
-        const response = await fetch('/api/send-booking', {
+        const response = await fetch('/send-booking', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
